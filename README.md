@@ -4,14 +4,14 @@
 
 ## Repository layout
 
-### FRC 7446 2020-2021
+### 2020-2021
 
 Contains previous resources
 
 * 1 - Resources for 2021
 * 2 - Resources for 2020
 
-### FRC 7446 2022
+### 2022
 
 This year's resources
 
