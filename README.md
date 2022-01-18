@@ -8,8 +8,8 @@
 
 Contains previous resources
 
-* 1 - Resources for 2021
-* 2 - Resources for 2020
+* 2020 - Resources for 2020
+* 2021 - Resources for 2021
 
 ### 2022
 
