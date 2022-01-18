@@ -4,12 +4,9 @@
 
 ## Repository layout
 
-### 2020-2021
+### Previous Years
 
-Contains previous resources
-
-* 2020 - Resources for 2020
-* 2021 - Resources for 2021
+Contains resources from previous years
 
 ### 2022
 
