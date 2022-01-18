@@ -21,4 +21,4 @@ TBD
 
 ## Guidelines
 
-Please see [Guidelines.md](FRC%207446%202022/Guidelines.md)
+Please see [Guidelines.md](2022/Guidelines.md)
