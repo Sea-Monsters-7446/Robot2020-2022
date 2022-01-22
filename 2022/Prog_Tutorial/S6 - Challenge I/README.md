@@ -8,7 +8,7 @@ You do not need to use decimals for inputs or outputs
 
 This means that equations like "1 / 2" may result in incorrect answers
 
-## Perimeters
+## Perimeters:
 * Takes 3 inputs, 2 for the numbers and 1 for the operation
 
 There's a number of ways you can take the 3 inputs, but as long as it's not hard coded then it's fine
@@ -45,3 +45,6 @@ Don't have the program panic when dividing by zero, handle the error
 > Please input your second number: 0
 > Invalid denominator, cannot divide by zero
 ```
+
+## Bonus:
+**Allow the user to run the program more then once**
