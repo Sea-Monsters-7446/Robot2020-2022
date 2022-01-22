@@ -1,0 +1,2 @@
+# Different variable types
+## Placeholder
