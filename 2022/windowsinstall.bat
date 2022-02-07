@@ -12,5 +12,5 @@ del VSCode-Setup.exe
 curl https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe -o JavaLatest.exe -L
 JavaLatest.exe INSTALL_SILENT=1
 del JavaLatest.msi
-code --install-extension ms-vscode.cpptools --install-extension wpilibsuite.vscode-wpilib
+code --install-extension ms-vscode.cpptools --install-extension wpilibsuite.vscode-wpilib --install-extension vscjava.vscode-java-pack
 code
