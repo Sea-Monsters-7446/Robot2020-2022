@@ -7,11 +7,12 @@
 #include <string>
 
 #include <frc/TimedRobot.h>
-#include <frc/motorcontrol/PWMSparkMax.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/Timer.h>
 #include <frc/XboxController.h>
 #include <frc/Joystick.h>
+#include <frc/motorcontrol/PWMVictorSPX.h>
+#include <frc/motorcontrol/MotorControllerGroup.h>
 
 class Robot : public frc::TimedRobot {
  public:
@@ -27,9 +28,14 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
  private:
-  frc::PWMSparkMax m_leftMotor1{1};
-  frc::PWMSparkMax m_rightMotor1{2};
-  frc::DifferentialDrive m_drive{m_leftMotor1, m_rightMotor1};
+  frc::PWMVictorSPX m_leftMotor1{1};
+  frc::PWMVictorSPX m_rightMotor1{2};
+  frc::PWMVictorSPX m_leftMotor2{3};
+  frc::PWMVictorSPX m_rightMotor2{4};
+  frc::MotorControllerGroup m_leftMotor{m_leftMotor1, m_leftMotor2};
+  frc::MotorControllerGroup m_rightMotor{m_rightMotor1, m_rightMotor2};
+
+  frc::DifferentialDrive m_drive{m_leftMotor, m_rightMotor};
   frc::Timer m_timer;
   frc::XboxController m_controller{0x01};
   frc::Joystick m_joystick{0};
