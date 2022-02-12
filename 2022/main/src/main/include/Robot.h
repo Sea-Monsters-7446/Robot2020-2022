@@ -37,6 +37,5 @@ class Robot : public frc::TimedRobot {
 
   frc::DifferentialDrive m_drive{m_leftMotor, m_rightMotor};
   frc::Timer m_timer;
-  frc::XboxController m_controller{0x01};
   frc::Joystick m_joystick{0};
 };

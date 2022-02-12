@@ -7,7 +7,6 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/time.h>
 #include <frc/Timer.h>
-#include <cstdint>
 #include <frc/XboxController.h>
 #include <frc/Joystick.h>
 
@@ -42,7 +41,6 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-  // Resets the timer
   m_timer.Reset();
 }
 
@@ -52,9 +50,13 @@ void Robot::TeleopPeriodic() {
   // For use with joystick and simulation
 
 
-  // Gets the X and Y data from the joystick and reports it back through
-  // SmartDashboard
+  // Gets the X and Y of the joystick and controls the motor based on the values
+  // The Y value of the joystick has to be reversed because the joystick is reversed
+  // because of flight simulation and the way that is set up (up is down and down is up)
   m_drive.ArcadeDrive((m_joystick.GetY() * -1), m_joystick.GetX());
+
+  // Reports back to the SmartDashboard what direction the motor is supposed to be
+  // going in
   if (m_joystick.GetX() > 0x00 && (m_joystick.GetY() * -1) > 0x00) {
     frc::SmartDashboard::PutString("Direction:", "Right Forwards");
   }
