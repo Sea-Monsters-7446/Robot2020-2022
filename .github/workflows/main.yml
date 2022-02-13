@@ -16,7 +16,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: 2022/main
     # This grabs the WPILib docker container
     container: wpilib/roborio-cross-ubuntu:2022-18.04
 
@@ -24,10 +26,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    # CD's into the working directory (Where all the code is located)
-    - name: Cd's into the working directory
-      run: cd 2022/main
+
     # Grant execute permission for gradlew
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
