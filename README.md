@@ -1,5 +1,5 @@
 # The robot thing
-
+[![CI](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/main.yml/badge.svg)](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/main.yml)
 **Be sure to check the projects tab for current goals**
 
 ## Repository layout
