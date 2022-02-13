@@ -9,7 +9,7 @@
 #include <frc/Timer.h>
 #include <frc/XboxController.h>
 #include <frc/Joystick.h>
-#include <time.h>
+#include <units/time.h>
 #include <frc2/command/button/JoystickButton.h>
 #include "buttonState.h"
 
@@ -18,7 +18,7 @@ Robot::Robot() :
   m_rightMotor1(2),
   m_leftMotor2(3),
   m_rightMotor2(4),
-  m_launcherMotor(5),
+  m_yeeter(5),
   m_conveyor(6),
   m_pickupMech1(7),
   m_pickupMech2(8),
@@ -94,14 +94,14 @@ void Robot::TeleopPeriodic() {
 
   if (m_joystickButtons.isButton3Pressed()) {
     if (m_joystickButtons.isButton4Pressed()) {
-      m_launcherMotor.Set(-1);
+      m_yeeter.Set(-1);
     }
     else {
-      m_launcherMotor.Set(1);
+      m_yeeter.Set(1);
     }
   }
   else {
-    m_launcherMotor.Set(0);
+    m_yeeter.Set(0);
   }
 }
 void Robot::DisabledInit() {
