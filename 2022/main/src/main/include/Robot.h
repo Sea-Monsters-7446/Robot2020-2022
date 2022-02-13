@@ -15,11 +15,17 @@
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <frc2/command/button/JoystickButton.h>
 #include "buttonState.h"
-
+/**
+ * @brief Main robot class
+ * 
+ */
 class Robot : public frc::TimedRobot {
  public:
+ /**
+  * @brief Construct a new Robot object
+  * 
+  */
   Robot();
-
   void RobotInit() override;
   void RobotPeriodic() override;
   void AutonomousInit() override;
