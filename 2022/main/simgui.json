@@ -14,7 +14,15 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
-      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive"
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[1]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[2]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[3]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[4]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[5]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[6]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[7]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[8]": "Motor Controller"
     },
     "windows": {
       "/FMSInfo": {
