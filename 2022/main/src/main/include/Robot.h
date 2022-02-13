@@ -38,7 +38,7 @@ class Robot : public frc::TimedRobot {
   frc::PWMVictorSPX m_leftMotor2;
   frc::PWMVictorSPX m_rightMotor2;
   // Motor for the launcher
-  frc::PWMVictorSPX m_launcherMotor;
+  frc::PWMVictorSPX m_yeeter;
   // Motor for the conveyor belt
   frc::PWMVictorSPX m_conveyor;
   // Motors for the pickup mechanism
