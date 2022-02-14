@@ -12,7 +12,10 @@
 #include <units/time.h>
 #include <frc2/command/button/JoystickButton.h>
 #include "buttonState.h"
-
+/**
+ * @brief Construct a new Robot object
+ * 
+ */
 Robot::Robot() :
   m_leftMotor1(1),
   m_rightMotor1(2),
@@ -31,7 +34,10 @@ Robot::Robot() :
 {
   
 }
-
+/**
+ * @brief This function that gets called when the robot first turns on
+ * 
+ */
 void Robot::RobotInit() {
   
 }
@@ -47,16 +53,29 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {
 
 }
+/**
+ * @brief This function gets called whenever the mode gets switched to Autonomous and it only gets called once per mode switch
+ * 
+ */
 void Robot::AutonomousInit() {
 }
-
+/**
+ * @brief This function is a loop that keeps getting called as long as the mode is set to Autonomous
+ * 
+ */
 void Robot::AutonomousPeriodic() {
 
 }
-
+/**
+ * @brief This function gets called whenever the mode gets switched to Teleoperated and only gets called once per mode switch
+ * 
+ */
 void Robot::TeleopInit() {
 }
-
+/**
+ * @brief This function is a loop that keeps getting called as long as the mode is set to Teleoperated
+ * 
+ */
 void Robot::TeleopPeriodic() {
   // For use with controller
   //m_drive.ArcadeDrive(m_controller.GetLeftY(), m_controller.GetRightX());
@@ -104,23 +123,41 @@ void Robot::TeleopPeriodic() {
     m_yeeter.Set(0);
   }
 }
+/**
+ * @brief This function gets called whenever the mode gets switched to Disabled, or when you first start your robot and only gets called once per mode switch
+ * 
+ */
 void Robot::DisabledInit() {
 
 }
-
+/**
+ * @brief This function is a loop that keeps getting called as long as the mode is set to Disabled
+ * 
+ */
 void Robot::DisabledPeriodic() {
 
 }
-
+/**
+ * @brief This function gets called whenever the mode gets switched to Test and only gets called once per mode switch
+ * 
+ */
 void Robot::TestInit() {
 
 }
-
+/**
+ * @brief This function is a loop that keeps getting called as long as the mode is set to Test
+ * 
+ */
 void Robot::TestPeriodic() {
   
 }
 
 #ifndef RUNNING_FRC_TESTS
+/**
+ * @brief This only gets used for TESTS and was here by default. I don't know what it's meant for but keep it included.
+ * 
+ * @return int 
+ */
 int main() {
   return frc::StartRobot<Robot>();
 }

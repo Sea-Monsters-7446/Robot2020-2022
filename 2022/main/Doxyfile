@@ -3,6 +3,7 @@
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
+
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Sea Dragons"
 PROJECT_NUMBER         = 1.0
@@ -165,7 +166,7 @@ FILE_PATTERNS          = *.c \
                          *.qsf \
                          *.ice
 RECURSIVE              = YES
-EXCLUDE                =
+EXCLUDE                = src/main/cpp/deploy/* src/main/cpp/test/* build/* gradle/*
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
@@ -205,10 +206,10 @@ IGNORE_PREFIX          =
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
 HTML_FILE_EXTENSION    = .html
-HTML_HEADER            =
-HTML_FOOTER            =
+HTML_HEADER            = DoxygenThemes/doxygen-awesome-css/header.html
+HTML_FOOTER            = DoxygenThemes/doxygen-awesome-css/footer.html
 HTML_STYLESHEET        =
-HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_STYLESHEET  = DoxygenThemes/doxygen-awesome-css/doxygen-awesome.css DoxygenThemes/doxygen-awesome-css/doxygen-awesome-sidebar-only.css
 HTML_EXTRA_FILES       =
 HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100
