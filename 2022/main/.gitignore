@@ -162,4 +162,4 @@ bin/
 *-window.json
 
 # Github
-*.yml
+.github/workflows/Doxygen.yml
