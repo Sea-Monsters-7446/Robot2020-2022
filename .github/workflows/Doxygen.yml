@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Perform a ducking apt-get update
+        run: apt-get update
       - name: Install Doxygen
         run: sudo apt-get install doxygen
       - name: Install LaTeX
