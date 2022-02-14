@@ -24,19 +24,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Doxygen Action
-        uses: mattnotmitt/doxygen-action@v1.9.2
-        with:
-          working-directory: '2022/main'
-          doxyfile-path: './Doxyfile'
-          enable-latex: true
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen
+      - name: Install LaTeX
+        run: sudo apt-get install texlive-full     
+      - name: Run Doxygen
+        run: doxygen Doxyfile
+        working-directory: '2022/main'
+
      # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
-          working-directory: '2022/main'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc/html/
+          publish_dir: '/2022/main/doc'
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
