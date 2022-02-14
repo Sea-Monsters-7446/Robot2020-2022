@@ -29,13 +29,14 @@ jobs:
       - name: Run Doxygen
         run: doxygen Doxyfile
         working-directory: '2022/main'
+      - name: Install LaTeX
+        run: sudo apt-get install texlive-full
      # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
-          working-directory: '2022/main'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc/html/
+          publish_dir: '/2022/main/doc'
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
