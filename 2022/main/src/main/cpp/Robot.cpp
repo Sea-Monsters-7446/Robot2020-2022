@@ -110,7 +110,7 @@ void Robot::TeleopPeriodic() {
     m_conveyor.Set(0);
   }
 
-  if (m_joystickButtons.isButton3Pressed()) {
+  if (m_joystickButtons.isTriggerPressed()) {
     if (m_joystickButtons.isButton4Pressed()) {
       m_yeeter.Set(-1);
     }
