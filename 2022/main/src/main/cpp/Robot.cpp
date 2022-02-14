@@ -84,7 +84,6 @@ void Robot::TeleopPeriodic() {
   // Gets the X and Y of the joystick and controls the motor based on the values
   // The Y value of the joystick has to be reversed because the joystick is reversed
   // because of flight simulation and the way that is set up (up is down and down is up)
-  m_joystickButtons.updateState();
   m_drive.ArcadeDrive((m_joystick.GetY() * -1), m_joystick.GetX());
   
   if (m_joystickButtons.isButton1Pressed()) {

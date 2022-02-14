@@ -14,11 +14,6 @@ class buttonState {
    */
     buttonState(frc::Joystick& joystick);
     /**
-     * @brief Updates the button states
-     * 
-     */
-    void updateState();
-    /**
      * @brief Checks if button 1 of the joystick is pressed
      * 
      * @return true 
@@ -26,7 +21,7 @@ class buttonState {
      */
     bool isButton1Pressed();
     /**
-     * @brief Checks if button 2 of the joystic is pressed
+     * @brief Checks if button 2 of the joystick is pressed
      * 
      * @return true 
      * @return false 
@@ -47,14 +42,14 @@ class buttonState {
      */
     bool isButton4Pressed();
     /**
-     * @brief Checks if the trigger button of the joystick is pressed
+     * @brief Checks to see if the trigger button of the joystick is pressed
      * 
      * @return true 
      * @return false 
      */
     bool isTriggerPressed();
     /**
-     * @brief Checks to see if the top button of they joystick is pressed
+     * @brief Checks to see if the top button of the joystick is pressed
      * 
      * @return true 
      * @return false 
@@ -75,6 +70,12 @@ class buttonState {
       bool button4Pressed;
 
     };
+    /**
+     * @brief Updates the button states
+     * 
+     */
+    void updateState();
+    
     m_buttonState joystickButtonState;
     frc::Joystick& m_joystick;
 
