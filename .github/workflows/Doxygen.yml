@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Perform a ducking apt-get update
+        run: sudo apt-get update
       - name: Install Doxygen
         run: sudo apt-get install doxygen
       - name: Install LaTeX
@@ -37,7 +39,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: '/2022/main/doc'
+          publish_dir: '2022/main/doc'
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
