@@ -27,9 +27,7 @@ jobs:
       - name: Perform a ducking apt-get update
         run: sudo apt-get update
       - name: Install Doxygen
-        run: sudo apt-get install doxygen
-      - name: Install LaTeX
-        run: sudo apt-get install texlive-full     
+        run: sudo apt-get install doxygen 
       - name: Run Doxygen
         run: doxygen Doxyfile
         working-directory: '2022/main'
