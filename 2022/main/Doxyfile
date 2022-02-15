@@ -6,9 +6,9 @@
 
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Sea Dragons"
-PROJECT_NUMBER         = 1.0
+PROJECT_NUMBER         = "Beta 0.5"
 PROJECT_BRIEF          = "2022 FRC Robot Code Documentation"
-PROJECT_LOGO           =
+PROJECT_LOGO           = DoxygenThemes/red-logo.png
 OUTPUT_DIRECTORY       = ./doc/
 CREATE_SUBDIRS         = YES
 ALLOW_UNICODE_NAMES    = NO
@@ -39,7 +39,7 @@ QT_AUTOBRIEF           = NO
 MULTILINE_CPP_IS_BRIEF = NO
 INHERIT_DOCS           = YES
 SEPARATE_MEMBER_PAGES  = NO
-TAB_SIZE               = 4
+TAB_SIZE               = 2
 ALIASES                =
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO

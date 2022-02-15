@@ -17,17 +17,11 @@
  * 
  */
 Robot::Robot() :
-  m_leftMotor1(1),
-  m_rightMotor1(2),
-  m_leftMotor2(3),
-  m_rightMotor2(4),
+  m_leftMotor(1),
+  m_rightMotor(2),
   m_yeeter(5),
   m_conveyor(6),
-  m_pickupMech1(7),
-  m_pickupMech2(8),
-  m_leftMotor(m_leftMotor1, m_leftMotor2),
-  m_rightMotor(m_rightMotor1, m_rightMotor2),
-  m_pickupMech(m_pickupMech1, m_pickupMech2),
+  m_pickupMech(7),
   m_drive(m_leftMotor, m_rightMotor),
   m_joystick(0),
   m_joystickButtons(m_joystick)
@@ -88,6 +82,18 @@ void Robot::TeleopPeriodic() {
   
   if (m_joystickButtons.isButton1Pressed()) {
     if (m_joystickButtons.isButton4Pressed()) {
+      m_yeeter.Set(-0.5);
+    }
+    else {
+      m_yeeter.Set(1);
+    }
+  }
+  else {
+    m_yeeter.Set(0);
+  }
+
+  if (m_joystickButtons.isButton2Pressed()) {
+    if (m_joystickButtons.isButton4Pressed()) {
       m_pickupMech.Set(-0.5);
     }
     else {
@@ -98,7 +104,7 @@ void Robot::TeleopPeriodic() {
     m_pickupMech.Set(0);
   }
 
-  if (m_joystickButtons.isButton2Pressed()) {
+  if (m_joystickButtons.isButton3Pressed()) {
     if (m_joystickButtons.isButton4Pressed()) {
       m_conveyor.Set(-0.5);
     }
@@ -108,18 +114,6 @@ void Robot::TeleopPeriodic() {
   }
   else {
     m_conveyor.Set(0);
-  }
-
-  if (m_joystickButtons.isTriggerPressed()) {
-    if (m_joystickButtons.isButton4Pressed()) {
-      m_yeeter.Set(-1);
-    }
-    else {
-      m_yeeter.Set(1);
-    }
-  }
-  else {
-    m_yeeter.Set(0);
   }
 }
 /**

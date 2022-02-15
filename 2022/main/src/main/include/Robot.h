@@ -2,6 +2,8 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+//118 Robonaughts 254 Cheesy poops 16 sometimes
+
 #pragma once
 
 #include <string>
@@ -84,25 +86,15 @@ class Robot : public frc::TimedRobot {
  private:
   // Motors for the drive wheels
   /**
-   * @brief First left motor
+   * @brief Left motor
    * 
    */
-  frc::PWMVictorSPX m_leftMotor1;
+  frc::PWMVictorSPX m_leftMotor;
   /**
-   * @brief First right motot
+   * @brief Right motor
    * 
    */
-  frc::PWMVictorSPX m_rightMotor1;
-  /**
-   * @brief Second left motor
-   * 
-   */
-  frc::PWMVictorSPX m_leftMotor2;
-  /**
-   * @brief Second right motot
-   * 
-   */
-  frc::PWMVictorSPX m_rightMotor2;
+  frc::PWMVictorSPX m_rightMotor;
   // Motor for the launcher
   /**
    * @brief Motor for the YEETER (launcher)
@@ -115,33 +107,12 @@ class Robot : public frc::TimedRobot {
    * 
    */
   frc::PWMVictorSPX m_conveyor;
-  // Motors for the pickup mechanism
+  // Motor for the pickup mechanism
   /**
-   * @brief Motor 1 for the pickup mechanism
+   * @brief Motor for the pickup mechanism
    * 
    */
-  frc::PWMVictorSPX m_pickupMech1;
-  /**
-   * @brief Motor 2 for the pickup mechanism
-   * 
-   */
-  frc::PWMVictorSPX m_pickupMech2;
-  /**
-   * @brief Controller group for the two left motors
-   * 
-   */
-  frc::MotorControllerGroup m_leftMotor;
-  /**
-   * @brief Controller group for the two left motors
-   * 
-   */
-  frc::MotorControllerGroup m_rightMotor;
-  // Motor group for the ball pickup mechanism
-  /**
-   * @brief Controller group for the pickup mechanism motors
-   * 
-   */
-  frc::MotorControllerGroup m_pickupMech;
+  frc::PWMVictorSPX m_pickupMech;
   /**
    * @brief The drive object
    * 
