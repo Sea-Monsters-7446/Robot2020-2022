@@ -3,6 +3,9 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
+#include "buttonState.h"
+#include "driverControl.h"
+
 #include <fmt/core.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/time.h>
@@ -11,7 +14,7 @@
 #include <frc/Joystick.h>
 #include <units/time.h>
 #include <frc2/command/button/JoystickButton.h>
-#include "buttonState.h"
+
 /**
  * @brief Construct a new Robot object
  * 
@@ -24,7 +27,8 @@ Robot::Robot() :
   m_pickupMech(7),
   m_drive(m_leftMotor, m_rightMotor),
   m_joystick(0),
-  m_joystickButtons(m_joystick)
+  m_joystickButtons(m_joystick),
+  m_driveControl(m_drive)
 {
   
 }
@@ -78,7 +82,7 @@ void Robot::TeleopPeriodic() {
   // Gets the X and Y of the joystick and controls the motor based on the values
   // The Y value of the joystick has to be reversed because the joystick is reversed
   // because of flight simulation and the way that is set up (up is down and down is up)
-  m_drive.ArcadeDrive((m_joystick.GetY() * -1), m_joystick.GetX());
+  m_driveControl.update(m_joystick.GetX(), m_joystick.GetY());
   
   if (m_joystickButtons.isButton1Pressed()) {
     if (m_joystickButtons.isButton4Pressed()) {
