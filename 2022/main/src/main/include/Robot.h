@@ -2,11 +2,12 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-//118 Robonaughts 254 Cheesy poops 16 sometimes
+//118 Robonaughts 254 Cheesy poops 16 (sometimes) // List of good things to look at lol
 
 #pragma once
 
-#include <string>
+#include "buttonState.h"
+#include "driverControl.h"
 
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
@@ -15,8 +16,7 @@
 #include <frc/Joystick.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
-#include <frc2/command/button/JoystickButton.h>
-#include "buttonState.h"
+
 /**
  * @brief Main robot class
  * @brief For more information on how to use WPILibC++ goto https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html
@@ -128,4 +128,9 @@ class Robot : public frc::TimedRobot {
    * 
    */
   buttonState m_joystickButtons;
+  /**
+   * @brief The driveControl object
+   * 
+   */
+  driverController m_driveControl;
 };
