@@ -1,19 +1,17 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-
-#include "Robot.h"
-#include "buttonState.h"
-#include "driverControl.h"
-
 #include <fmt/core.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/time.h>
 #include <frc/Timer.h>
-#include <frc/XboxController.h>
 #include <frc/Joystick.h>
-#include <units/time.h>
-#include <frc2/command/button/JoystickButton.h>
+
+#include "Robot.h"
+#include "ButtonState.h"
+#include "DriverControl.h"
+#include "YeeterControl.h"
+
 
 /**
  * @brief Construct a new Robot object
@@ -28,16 +26,18 @@ Robot::Robot() :
   m_drive(m_leftMotor, m_rightMotor),
   m_joystick(0),
   m_joystickButtons(m_joystick),
-  m_driveControl(m_drive)
+  m_driveControl(m_drive),
+  m_yeeterControl(m_yeeter)
 {
   
 }
+
 /**
  * @brief This function that gets called when the robot first turns on
  * 
  */
 void Robot::RobotInit() {
-  
+
 }
 
 /**
@@ -75,26 +75,10 @@ void Robot::TeleopInit() {
  * 
  */
 void Robot::TeleopPeriodic() {
-  // For use with controller
-  //m_drive.ArcadeDrive(m_controller.GetLeftY(), m_controller.GetRightX());
-  // For use with joystick and simulation
 
-  // Gets the X and Y of the joystick and controls the motor based on the values
-  // The Y value of the joystick has to be reversed because the joystick is reversed
-  // because of flight simulation and the way that is set up (up is down and down is up)
-  m_driveControl.update(m_joystick.GetX(), m_joystick.GetY());
-  
-  if (m_joystickButtons.isButton1Pressed()) {
-    if (m_joystickButtons.isButton4Pressed()) {
-      m_yeeter.Set(-0.5);
-    }
-    else {
-      m_yeeter.Set(1);
-    }
-  }
-  else {
-    m_yeeter.Set(0);
-  }
+  m_driveControl(m_joystick.GetX(), m_joystick.GetY());
+
+  m_yeeterControl(m_joystickButtons.isButton1Pressed(), m_joystickButtons.isButton4Pressed());
 
   if (m_joystickButtons.isButton2Pressed()) {
     if (m_joystickButtons.isButton4Pressed()) {

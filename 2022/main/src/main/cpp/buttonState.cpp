@@ -1,4 +1,4 @@
-#include "buttonState.h"
+#include "ButtonState.h"
 #include <frc/Joystick.h>
 /**
  * @brief Construct a new buttonState object
@@ -7,7 +7,7 @@
  * <p> This class is used to read the state of the joystick because we had trouble with reading the joysticks
  * state consistently
  */
-buttonState::buttonState(frc::Joystick& joystick) :
+ButtonState::ButtonState(frc::Joystick& joystick) :
   m_joystick(joystick)
 {
 
@@ -16,7 +16,7 @@ buttonState::buttonState(frc::Joystick& joystick) :
  * @brief Updates the button states
  * 
  */
-void buttonState::updateState() {
+void ButtonState::updateState() {
   if (m_joystick.GetRawButtonPressed(1)) {
     joystickButtonState.button1Pressed = true;
   }
@@ -108,7 +108,7 @@ void buttonState::updateState() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton1Pressed() {
+bool ButtonState::isButton1Pressed() {
   updateState();
   return joystickButtonState.button1Pressed;
 }
@@ -118,7 +118,7 @@ bool buttonState::isButton1Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton2Pressed() {
+bool ButtonState::isButton2Pressed() {
   updateState();
   return joystickButtonState.button2Pressed;
 }
@@ -128,7 +128,7 @@ bool buttonState::isButton2Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton3Pressed() {
+bool ButtonState::isButton3Pressed() {
   updateState();
   return joystickButtonState.button3Pressed;
 }
@@ -138,7 +138,7 @@ bool buttonState::isButton3Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton4Pressed() {
+bool ButtonState::isButton4Pressed() {
   updateState();
   return joystickButtonState.button4Pressed;
 }
@@ -148,7 +148,7 @@ bool buttonState::isButton4Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton5Pressed() {
+bool ButtonState::isButton5Pressed() {
   updateState();
   return joystickButtonState.button5Pressed;
 }
@@ -158,7 +158,7 @@ bool buttonState::isButton5Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton6Pressed() {
+bool ButtonState::isButton6Pressed() {
   updateState();
   return joystickButtonState.button6Pressed;
 }
@@ -168,7 +168,7 @@ bool buttonState::isButton6Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton7Pressed() {
+bool ButtonState::isButton7Pressed() {
   updateState();
   return joystickButtonState.button7Pressed;
 }
@@ -178,7 +178,7 @@ bool buttonState::isButton7Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton8Pressed() {
+bool ButtonState::isButton8Pressed() {
   updateState();
   return joystickButtonState.button8Pressed;
 }
@@ -188,7 +188,7 @@ bool buttonState::isButton8Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton9Pressed() {
+bool ButtonState::isButton9Pressed() {
   updateState();
   return joystickButtonState.button9Pressed;
 }
@@ -198,7 +198,7 @@ bool buttonState::isButton9Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton10Pressed() {
+bool ButtonState::isButton10Pressed() {
   updateState();
   return joystickButtonState.button10Pressed;
 }
@@ -208,7 +208,7 @@ bool buttonState::isButton10Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton11Pressed() {
+bool ButtonState::isButton11Pressed() {
   updateState();
   return joystickButtonState.button11Pressed;
 }
@@ -218,7 +218,7 @@ bool buttonState::isButton11Pressed() {
  * @return true 
  * @return false 
  */
-bool buttonState::isButton12Pressed() {
+bool ButtonState::isButton12Pressed() {
   updateState();
   return joystickButtonState.button12Pressed;
 }

@@ -1,43 +1,32 @@
-#include "buttonState.h"
-#include "Robot.h"
+#pragma once
 
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/drive/DifferentialDrive.h>
 
-#pragma once
+#include "ButtonState.h"
+#include "Robot.h"
+
+
 /**
  * @brief A class that is used to control and update the drive stuff you know (;
  * 
  */
-class driverController {
-    public:
-        /**
-         * @brief Construct a new driverController object
-         * 
-         * @param drive The drive control object
-         */
-        driverController(frc::DifferentialDrive& drive);
-        /**
-         * @brief Updates the position of the wheels
-         * 
-         */
-        void update(double x, double y);
-    private:
-        /**
-         * @brief Update the position and movement of the wheels
-         * 
-         */
-        void updateWheels();
-        /**
-         * @brief Struct that keeps track of the joysticks X and Y position and stores it
-         * 
-         */
-        struct m_joystickAxisList {
-            double x;
-            double y;
-        };
+struct DriverController {
+public:
+    /**
+     * @brief Construct a new driverController object
+     * 
+     * @param drive The drive control object
+     */
+    DriverController(frc::DifferentialDrive& drive);
+    /**
+     * @brief Updates the position and movement of the wheels
+     * 
+     * @param x The x of the joystick
+     * @param y The y of the joystick
+     */
+    void operator()(double x, double y);
 
-        m_joystickAxisList joystickAxis;
-
-        frc::DifferentialDrive& m_drive;
+private:
+    frc::DifferentialDrive& m_drive;
 };

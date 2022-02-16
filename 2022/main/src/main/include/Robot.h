@@ -6,9 +6,6 @@
 
 #pragma once
 
-#include "buttonState.h"
-#include "driverControl.h"
-
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/Timer.h>
@@ -16,6 +13,11 @@
 #include <frc/Joystick.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
+
+#include "ButtonState.h"
+#include "DriverControl.h"
+#include "YeeterControl.h"
+
 
 /**
  * @brief Main robot class
@@ -124,13 +126,18 @@ class Robot : public frc::TimedRobot {
    */
   frc::Joystick m_joystick;
   /**
-   * @brief The buttonState object
+   * @brief The ButtonState object
    * 
    */
-  buttonState m_joystickButtons;
+  ButtonState m_joystickButtons;
   /**
-   * @brief The driveControl object
+   * @brief The DriveControl object
    * 
    */
-  driverController m_driveControl;
+  DriverController m_driveControl;
+  /**
+   * @brief The YeeterControl object
+   * 
+   */
+  YeeterController m_yeeterControl;
 };

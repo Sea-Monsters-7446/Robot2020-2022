@@ -5,13 +5,13 @@
  * @brief A class used to keep track of the state of buttons for a joystick
  * 
  */
-class buttonState {
+class ButtonState {
   public:
     /**
      * @brief Construct a new buttonState object
      * 
      */
-    buttonState(frc::Joystick& joystick);
+    ButtonState(frc::Joystick& joystick);
     /**
      * @brief Checks if button 1 of the joystick is pressed
      * 
