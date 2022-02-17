@@ -4,7 +4,7 @@
 
 #include <frc/drive/DifferentialDrive.h>
 /**
- * @brief Construct a new driverController object
+ * @brief Construct a new 'DriverController' object
  * 
  * 
  * @param drive The drive control object

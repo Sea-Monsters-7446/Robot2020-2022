@@ -11,7 +11,8 @@
 #include "ButtonState.h"
 #include "DriverControl.h"
 #include "YeeterControl.h"
-
+#include "PickupMechControl.h"
+#include "ConveyorControl.h"
 
 /**
  * @brief Construct a new Robot object
@@ -27,7 +28,9 @@ Robot::Robot() :
   m_joystick(0),
   m_joystickButtons(m_joystick),
   m_driveControl(m_drive),
-  m_yeeterControl(m_yeeter)
+  m_yeeterControl(m_yeeter),
+  m_pickupControl(m_pickupMech),
+  m_conveyorControl(m_conveyor)
 {
   
 }
@@ -80,29 +83,10 @@ void Robot::TeleopPeriodic() {
 
   m_yeeterControl(m_joystickButtons.isButton1Pressed(), m_joystickButtons.isButton4Pressed());
 
-  if (m_joystickButtons.isButton2Pressed()) {
-    if (m_joystickButtons.isButton4Pressed()) {
-      m_pickupMech.Set(-0.5);
-    }
-    else {
-      m_pickupMech.Set(0.5);
-    }
-  }
-  else {
-    m_pickupMech.Set(0);
-  }
+  m_pickupControl(m_joystickButtons.isButton2Pressed(), m_joystickButtons.isButton4Pressed());
 
-  if (m_joystickButtons.isButton3Pressed()) {
-    if (m_joystickButtons.isButton4Pressed()) {
-      m_conveyor.Set(-0.5);
-    }
-    else {
-      m_conveyor.Set(0.5);
-    }
-  }
-  else {
-    m_conveyor.Set(0);
-  }
+  m_conveyorControl(m_joystickButtons.isButton3Pressed(), m_joystickButtons.isButton4Pressed());
+
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Disabled, or when you first start your robot and only gets called once per mode switch

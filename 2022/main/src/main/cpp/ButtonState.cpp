@@ -1,7 +1,7 @@
 #include "ButtonState.h"
 #include <frc/Joystick.h>
 /**
- * @brief Construct a new buttonState object
+ * @brief Construct a new `ButtonState` object
  * 
  * @param joystick A joystick object created from frc/Joystick.h
  * <p> This class is used to read the state of the joystick because we had trouble with reading the joysticks

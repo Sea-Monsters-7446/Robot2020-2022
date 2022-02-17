@@ -3,7 +3,7 @@
 #include <frc/motorcontrol/PWMVictorSPX.h>
 
 /**
- * @brief Construct a new yeeterController object
+ * @brief Construct a new `YeeterController` object
  * 
  * @param yeeter THE yeeter object
  */
@@ -14,14 +14,12 @@ YeeterController::YeeterController(frc::PWMVictorSPX& yeeter) :
 }
 
 /**
- * @brief Updates the yeeter
+ * @brief Updates THE YEETER
  * 
- * @param triggerButton 
- * @param shiftTriggerButton 
  */
-void YeeterController::operator()(bool triggerButton, bool shiftTriggerButton) {
+void YeeterController::operator()(bool triggerButton, bool shiftButton) {
     if (triggerButton) {
-        m_yeeter.Set((shiftTriggerButton) ? -1 : 1);
+        m_yeeter.Set((shiftButton) ? -1 : 1);
     }
     else {
         m_yeeter.Set(0);
