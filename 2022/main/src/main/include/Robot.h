@@ -17,7 +17,8 @@
 #include "ButtonState.h"
 #include "DriverControl.h"
 #include "YeeterControl.h"
-
+#include "PickupMechControl.h"
+#include "ConveyorControl.h"
 
 /**
  * @brief Main robot class
@@ -131,13 +132,23 @@ class Robot : public frc::TimedRobot {
    */
   ButtonState m_joystickButtons;
   /**
-   * @brief The DriveControl object
+   * @brief The DriveController object
    * 
    */
   DriverController m_driveControl;
   /**
-   * @brief The YeeterControl object
+   * @brief The YeeterController object
    * 
    */
   YeeterController m_yeeterControl;
+  /**
+   * @brief The PickupController object
+   * 
+   */
+  PickupController m_pickupControl;
+  /**
+   * @brief The ConveyorController object
+   * 
+   */
+  ConveyorController m_conveyorControl;
 };

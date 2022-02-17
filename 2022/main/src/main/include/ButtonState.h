@@ -8,7 +8,7 @@
 class ButtonState {
   public:
     /**
-     * @brief Construct a new buttonState object
+     * @brief Construct a new `ButtonState` object
      * 
      */
     ButtonState(frc::Joystick& joystick);

@@ -10,11 +10,12 @@
 /**
  * @brief A class that is used to control and update the drive stuff you know (;
  * 
+ * 
  */
 struct DriverController {
 public:
     /**
-     * @brief Construct a new driverController object
+     * @brief Construct a new 'DriverController' object
      * 
      * @param drive The drive control object
      */
