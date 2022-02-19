@@ -38,6 +38,9 @@
     }
   },
   "NetworkTables": {
+    "CameraPublisher": {
+      "open": true
+    },
     "SmartDashboard": {
       "open": true
     }

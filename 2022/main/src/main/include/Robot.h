@@ -13,12 +13,16 @@
 #include <frc/Joystick.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
+#include <utility>
+#include <thread>
 
 #include "ButtonState.h"
 #include "DriverControl.h"
 #include "YeeterControl.h"
 #include "PickupMechControl.h"
 #include "ConveyorControl.h"
+#include "SafeData.hpp"
+#include "Vision.h"
 
 /**
  * @brief Main robot class
@@ -151,4 +155,16 @@ class Robot : public frc::TimedRobot {
    * 
    */
   ConveyorController m_conveyorControl;
+  /**
+   * @brief Thread safe data that is used for storing the possible ball data
+   * 
+   */
+  SafeData<std::tuple<double, double, double>> m_posibleBallPosition;
+  /**
+   * @brief The VisionSense library
+   * <p> Used for detection
+   * 
+   */
+  VisionSense m_visionSense;
+  std::thread m_visionThread;
 };

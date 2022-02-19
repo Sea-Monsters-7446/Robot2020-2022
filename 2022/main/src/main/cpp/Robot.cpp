@@ -6,6 +6,8 @@
 #include <units/time.h>
 #include <frc/Timer.h>
 #include <frc/Joystick.h>
+#include <utility>
+#include <thread>
 
 #include "Robot.h"
 #include "ButtonState.h"
@@ -13,6 +15,8 @@
 #include "YeeterControl.h"
 #include "PickupMechControl.h"
 #include "ConveyorControl.h"
+#include "SafeData.hpp"
+#include "Vision.h"
 
 /**
  * @brief Construct a new Robot object
@@ -30,7 +34,9 @@ Robot::Robot() :
   m_driveControl(m_drive),
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
-  m_conveyorControl(m_conveyor)
+  m_conveyorControl(m_conveyor),
+  m_visionSense(m_posibleBallPosition),
+  m_visionThread()
 {
   
 }
@@ -40,7 +46,9 @@ Robot::Robot() :
  * 
  */
 void Robot::RobotInit() {
-
+  m_visionThread = std::thread([this]() -> void {
+    m_visionSense();
+  });
 }
 
 /**
