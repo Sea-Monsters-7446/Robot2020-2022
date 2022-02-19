@@ -14,9 +14,9 @@ PickupController::PickupController(frc::PWMVictorSPX& pickupMech) :
  * @brief Updates the PickupMech
  * 
  */
-void PickupController::operator()(bool triggerButton, bool shiftTriggerButton) {
+void PickupController::operator()(bool triggerButton, bool shiftButton) {
     if (triggerButton) {
-        m_pickupMech.Set((shiftTriggerButton) ? -0.5 : 0.5);
+        m_pickupMech.Set((shiftButton) ? -0.5 : 0.5);
     }
     else {
         m_pickupMech.Set(0);

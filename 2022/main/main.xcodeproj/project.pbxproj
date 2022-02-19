@@ -1,0 +1,96 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXFileReference section */
+		AFFDA78727C14D8E00F0EA01 /* gradlew */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gradlew; sourceTree = "<group>"; };
+		AFFDA78827C14D8E00F0EA01 /* build.gradle */ = {isa = PBXFileReference; lastKnownFileType = text; path = build.gradle; sourceTree = "<group>"; };
+		AFFDA78927C14D8E00F0EA01 /* simgui.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = simgui.json; sourceTree = "<group>"; };
+		AFFDA78A27C14D8E00F0EA01 /* vendordeps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = vendordeps; sourceTree = "<group>"; };
+		AFFDA78B27C14D8E00F0EA01 /* gradlew.bat */ = {isa = PBXFileReference; lastKnownFileType = text; path = gradlew.bat; sourceTree = "<group>"; };
+		AFFDA78C27C14D8E00F0EA01 /* settings.gradle */ = {isa = PBXFileReference; lastKnownFileType = text; path = settings.gradle; sourceTree = "<group>"; };
+		AFFDA78D27C14D8E00F0EA01 /* gradle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gradle; sourceTree = "<group>"; };
+		AFFDA78E27C14D8E00F0EA01 /* simgui-ds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "simgui-ds.json"; sourceTree = "<group>"; };
+		AFFDA78F27C14D8E00F0EA01 /* DoxygenThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DoxygenThemes; sourceTree = "<group>"; };
+		AFFDA79027C14D8E00F0EA01 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		AFFDA79127C14D8E00F0EA01 /* WPILib-License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "WPILib-License.md"; sourceTree = "<group>"; };
+		AFFDA79227C14D8E00F0EA01 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		AFFDA78027C14D5200F0EA01 = {
+			isa = PBXGroup;
+			children = (
+				AFFDA78827C14D8E00F0EA01 /* build.gradle */,
+				AFFDA79227C14D8E00F0EA01 /* Doxyfile */,
+				AFFDA78F27C14D8E00F0EA01 /* DoxygenThemes */,
+				AFFDA78D27C14D8E00F0EA01 /* gradle */,
+				AFFDA78727C14D8E00F0EA01 /* gradlew */,
+				AFFDA78B27C14D8E00F0EA01 /* gradlew.bat */,
+				AFFDA78C27C14D8E00F0EA01 /* settings.gradle */,
+				AFFDA78E27C14D8E00F0EA01 /* simgui-ds.json */,
+				AFFDA78927C14D8E00F0EA01 /* simgui.json */,
+				AFFDA79027C14D8E00F0EA01 /* src */,
+				AFFDA78A27C14D8E00F0EA01 /* vendordeps */,
+				AFFDA79127C14D8E00F0EA01 /* WPILib-License.md */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		AFFDA78127C14D5200F0EA01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1320;
+			};
+			buildConfigurationList = AFFDA78427C14D5200F0EA01 /* Build configuration list for PBXProject "main" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFFDA78027C14D5200F0EA01;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		AFFDA78527C14D5200F0EA01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AFFDA78627C14D5200F0EA01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFFDA78427C14D5200F0EA01 /* Build configuration list for PBXProject "main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFFDA78527C14D5200F0EA01 /* Debug */,
+				AFFDA78627C14D5200F0EA01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFFDA78127C14D5200F0EA01 /* Project object */;
+}
