@@ -1,3 +1,4 @@
+#pragma once
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
@@ -22,7 +23,8 @@
  * @brief Construct a new Robot object
  * 
  */
-Robot::Robot() :
+template<typename JoystickType>
+Robot<JoystickType>::Robot() :
   m_leftMotor(1),
   m_rightMotor(2),
   m_yeeter(5),
@@ -41,11 +43,13 @@ Robot::Robot() :
   
 }
 
+
 /**
  * @brief This function that gets called when the robot first turns on
  * 
  */
-void Robot::RobotInit() {
+template<typename JoystickType>
+void Robot<JoystickType>::RobotInit() {
   m_visionThread = std::thread([this]() -> void {
     m_visionSense();
   });
@@ -59,33 +63,40 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {
+template<typename JoystickType>
+void Robot<JoystickType>::RobotPeriodic() {
 
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Autonomous and it only gets called once per mode switch
  * 
  */
-void Robot::AutonomousInit() {
+template<typename JoystickType>
+void Robot<JoystickType>::AutonomousInit() {
+
 }
+
 /**
  * @brief This function is a loop that keeps getting called as long as the mode is set to Autonomous
  * 
  */
-void Robot::AutonomousPeriodic() {
+template<typename JoystickType>
+void Robot<JoystickType>::AutonomousPeriodic() {
 
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Teleoperated and only gets called once per mode switch
  * 
  */
-void Robot::TeleopInit() {
+template<typename JoystickType>
+void Robot<JoystickType>::TeleopInit() {
 }
 /**
  * @brief This function is a loop that keeps getting called as long as the mode is set to Teleoperated
  * 
  */
-void Robot::TeleopPeriodic() {
+template<typename JoystickType>
+void Robot<JoystickType>::TeleopPeriodic() {
 
   m_driveControl(m_joystick.GetX(), m_joystick.GetY());
 
@@ -100,38 +111,33 @@ void Robot::TeleopPeriodic() {
  * @brief This function gets called whenever the mode gets switched to Disabled, or when you first start your robot and only gets called once per mode switch
  * 
  */
-void Robot::DisabledInit() {
+template<typename JoystickType>
+void Robot<JoystickType>::DisabledInit() {
 
 }
 /**
  * @brief This function is a loop that keeps getting called as long as the mode is set to Disabled
  * 
  */
-void Robot::DisabledPeriodic() {
+template<typename JoystickType>
+void Robot<JoystickType>::DisabledPeriodic() {
 
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Test and only gets called once per mode switch
  * 
  */
-void Robot::TestInit() {
+template<typename JoystickType>
+void Robot<JoystickType>::TestInit() {
 
 }
 /**
  * @brief This function is a loop that keeps getting called as long as the mode is set to Test
  * 
  */
-void Robot::TestPeriodic() {
+template<typename JoystickType>
+void Robot<JoystickType>::TestPeriodic() {
   
 }
 
-#ifndef RUNNING_FRC_TESTS
-/**
- * @brief This only gets used for TESTS and was here by default. I don't know what it's meant for but keep it included.
- * 
- * @return int 
- */
-int main() {
-  return frc::StartRobot<Robot>();
-}
-#endif
+

@@ -15,6 +15,7 @@
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <utility>
 #include <thread>
+#include <memory>
 
 #include "ButtonState.h"
 #include "DriverControl.h"
@@ -28,6 +29,7 @@
  * @brief Main robot class
  * @brief For more information on how to use WPILibC++ goto https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html
  */
+template<typename JoystickType>
 class Robot : public frc::TimedRobot {
  public:
 /**
@@ -35,6 +37,7 @@ class Robot : public frc::TimedRobot {
  * 
  */
   Robot();
+
 /**
  * @brief This function that gets called when the robot first turns on
  * 
@@ -129,7 +132,8 @@ class Robot : public frc::TimedRobot {
    * @brief The joystick object
    * 
    */
-  frc::Joystick m_joystick;
+  JoystickType m_joystick;
+
   /**
    * @brief The ButtonState object
    * 
@@ -168,3 +172,5 @@ class Robot : public frc::TimedRobot {
   VisionSense m_visionSense;
   std::thread m_visionThread;
 };
+
+#include "Robot.hpp"

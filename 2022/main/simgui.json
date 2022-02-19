@@ -39,6 +39,9 @@
   },
   "NetworkTables": {
     "CameraPublisher": {
+      "VisionSense": {
+        "open": true
+      },
       "open": true
     },
     "SmartDashboard": {

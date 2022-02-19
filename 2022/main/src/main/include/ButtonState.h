@@ -1,6 +1,8 @@
-#include <frc/Joystick.h>
-
 #pragma once
+
+#include <frc/Joystick.h>
+#include <memory>
+
 /**
  * @brief A class used to keep track of the state of buttons for a joystick
  * 
@@ -11,7 +13,7 @@ class ButtonState {
      * @brief Construct a new `ButtonState` object
      * 
      */
-    ButtonState(frc::Joystick& joystick);
+    ButtonState(frc::GenericHID& joystick);
     /**
      * @brief Checks if button 1 of the joystick is pressed
      * 
@@ -101,7 +103,7 @@ class ButtonState {
      * @brief Struct that keeps track of the button state
      * 
      */
-    struct m_buttonState {
+    struct ButtonStateType {
       bool button1Pressed;
       bool button2Pressed;
       bool button3Pressed;
@@ -121,7 +123,7 @@ class ButtonState {
      */
     void updateState();
     
-    m_buttonState joystickButtonState;
-    frc::Joystick& m_joystick;
+    ButtonStateType m_joystickButtonState;
+    frc::GenericHID& m_joystick;
 
 };

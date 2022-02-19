@@ -7,7 +7,7 @@
  * <p> This class is used to read the state of the joystick because we had trouble with reading the joysticks
  * state consistently
  */
-ButtonState::ButtonState(frc::Joystick& joystick) :
+ButtonState::ButtonState(frc::GenericHID& joystick) :
   m_joystick(joystick)
 {
 
@@ -18,87 +18,87 @@ ButtonState::ButtonState(frc::Joystick& joystick) :
  */
 void ButtonState::updateState() {
   if (m_joystick.GetRawButtonPressed(1)) {
-    joystickButtonState.button1Pressed = true;
+    m_joystickButtonState.button1Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(1)) {
-    joystickButtonState.button1Pressed = false;
+    m_joystickButtonState.button1Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(2)) {
-    joystickButtonState.button2Pressed = true;
+    m_joystickButtonState.button2Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(2)) {
-    joystickButtonState.button2Pressed = false;
+    m_joystickButtonState.button2Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(3)) {
-    joystickButtonState.button3Pressed = true;
+    m_joystickButtonState.button3Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(3)) {
-    joystickButtonState.button3Pressed = false;
+    m_joystickButtonState.button3Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(4)) {
-    joystickButtonState.button4Pressed = true;
+    m_joystickButtonState.button4Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(4)) {
-    joystickButtonState.button4Pressed = false;
+    m_joystickButtonState.button4Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(5)) {
-    joystickButtonState.button5Pressed = true;
+    m_joystickButtonState.button5Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(5)) {
-    joystickButtonState.button5Pressed = false;
+    m_joystickButtonState.button5Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(6)) {
-    joystickButtonState.button6Pressed = true;
+    m_joystickButtonState.button6Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(6)) {
-    joystickButtonState.button6Pressed = false;
+    m_joystickButtonState.button6Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(7)) {
-    joystickButtonState.button7Pressed = true;
+    m_joystickButtonState.button7Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(7)) {
-    joystickButtonState.button7Pressed = false;
+    m_joystickButtonState.button7Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(8)) {
-    joystickButtonState.button8Pressed = true;
+    m_joystickButtonState.button8Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(8)) {
-    joystickButtonState.button8Pressed = false;
+    m_joystickButtonState.button8Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(9)) {
-    joystickButtonState.button9Pressed = true;
+    m_joystickButtonState.button9Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(9)) {
-    joystickButtonState.button9Pressed = false;
+    m_joystickButtonState.button9Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(10)) {
-    joystickButtonState.button10Pressed = true;
+    m_joystickButtonState.button10Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(10)) {
-    joystickButtonState.button10Pressed = false;
+    m_joystickButtonState.button10Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(11)) {
-    joystickButtonState.button11Pressed = true;
+    m_joystickButtonState.button11Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(11)) {
-    joystickButtonState.button11Pressed = false;
+    m_joystickButtonState.button11Pressed = false;
   }
 
   if (m_joystick.GetRawButtonPressed(12)) {
-    joystickButtonState.button12Pressed = true;
+    m_joystickButtonState.button12Pressed = true;
   }
   else if (m_joystick.GetRawButtonReleased(12)) {
-    joystickButtonState.button12Pressed = false;
+    m_joystickButtonState.button12Pressed = false;
   }
 
 }
@@ -110,7 +110,7 @@ void ButtonState::updateState() {
  */
 bool ButtonState::isButton1Pressed() {
   updateState();
-  return joystickButtonState.button1Pressed;
+  return m_joystickButtonState.button1Pressed;
 }
 /**
  * @brief Checks if button 2 of the joystick is pressed
@@ -120,7 +120,7 @@ bool ButtonState::isButton1Pressed() {
  */
 bool ButtonState::isButton2Pressed() {
   updateState();
-  return joystickButtonState.button2Pressed;
+  return m_joystickButtonState.button2Pressed;
 }
 /**
  * @brief Checks if button 3 of the joystick is pressed
@@ -130,7 +130,7 @@ bool ButtonState::isButton2Pressed() {
  */
 bool ButtonState::isButton3Pressed() {
   updateState();
-  return joystickButtonState.button3Pressed;
+  return m_joystickButtonState.button3Pressed;
 }
 /**
  * @brief Checks if button 4 of the joystick is pressed
@@ -140,7 +140,7 @@ bool ButtonState::isButton3Pressed() {
  */
 bool ButtonState::isButton4Pressed() {
   updateState();
-  return joystickButtonState.button4Pressed;
+  return m_joystickButtonState.button4Pressed;
 }
 /**
  * @brief Checks if button 5 of the joystick is pressed
@@ -150,7 +150,7 @@ bool ButtonState::isButton4Pressed() {
  */
 bool ButtonState::isButton5Pressed() {
   updateState();
-  return joystickButtonState.button5Pressed;
+  return m_joystickButtonState.button5Pressed;
 }
 /**
  * @brief Checks if button 6 of the joystick is pressed
@@ -160,7 +160,7 @@ bool ButtonState::isButton5Pressed() {
  */
 bool ButtonState::isButton6Pressed() {
   updateState();
-  return joystickButtonState.button6Pressed;
+  return m_joystickButtonState.button6Pressed;
 }
 /**
  * @brief Checks if button 7 of the joystick is pressed
@@ -170,7 +170,7 @@ bool ButtonState::isButton6Pressed() {
  */
 bool ButtonState::isButton7Pressed() {
   updateState();
-  return joystickButtonState.button7Pressed;
+  return m_joystickButtonState.button7Pressed;
 }
 /**
  * @brief Checks if button 8 of the joystick is pressed
@@ -180,7 +180,7 @@ bool ButtonState::isButton7Pressed() {
  */
 bool ButtonState::isButton8Pressed() {
   updateState();
-  return joystickButtonState.button8Pressed;
+  return m_joystickButtonState.button8Pressed;
 }
 /**
  * @brief Checks if button 9 of the joystick is pressed
@@ -190,7 +190,7 @@ bool ButtonState::isButton8Pressed() {
  */
 bool ButtonState::isButton9Pressed() {
   updateState();
-  return joystickButtonState.button9Pressed;
+  return m_joystickButtonState.button9Pressed;
 }
 /**
  * @brief Checks if button 10 of the joystick is pressed
@@ -200,7 +200,7 @@ bool ButtonState::isButton9Pressed() {
  */
 bool ButtonState::isButton10Pressed() {
   updateState();
-  return joystickButtonState.button10Pressed;
+  return m_joystickButtonState.button10Pressed;
 }
 /**
  * @brief Checks if button 11 of the joystick is pressed
@@ -210,7 +210,7 @@ bool ButtonState::isButton10Pressed() {
  */
 bool ButtonState::isButton11Pressed() {
   updateState();
-  return joystickButtonState.button11Pressed;
+  return m_joystickButtonState.button11Pressed;
 }
 /**
  * @brief Checks if button 12 of the joystick is pressed
@@ -220,5 +220,5 @@ bool ButtonState::isButton11Pressed() {
  */
 bool ButtonState::isButton12Pressed() {
   updateState();
-  return joystickButtonState.button12Pressed;
+  return m_joystickButtonState.button12Pressed;
 }
