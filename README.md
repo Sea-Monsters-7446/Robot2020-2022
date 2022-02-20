@@ -1,5 +1,5 @@
 # The robot thing
-[![CI](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/main.yml/badge.svg)](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/main.yml)[![Doxygen](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/Doxygen.yml/badge.svg)](https://github.com/Carterpersall/FIRST-Robotics-7446/actions/workflows/Doxygen.yml)
+[![CI](https://github.com/FRC7446/FIRST-Robotics-7446/actions/workflows/main.yml/badge.svg)](https://github.com/FRC7446/FIRST-Robotics-7446/actions/workflows/main.yml)[![Doxygen](https://github.com/FRC7446/FIRST-Robotics-7446/actions/workflows/Doxygen.yml/badge.svg)](https://github.com/FRC7446/FIRST-Robotics-7446/actions/workflows/Doxygen.yml)
 
 Page: [Sea Dragons](https://frc7446.github.io/FIRST-Robotics-7446/)
 

@@ -1,4 +1,4 @@
-#As of right now I do not know if VS Code for WPILib can be installed silently (Via the command line) so for now you have to manually install it
+#As of right now VS Code for WPILib cannot be installed via the command line so for now it has to be manually installed
 
 #Install VSCode BuildTools
 Write-Host "Installing VSCode BuildTools"
