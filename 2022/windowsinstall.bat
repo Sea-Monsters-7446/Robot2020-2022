@@ -1,4 +1,4 @@
-echo As of right now I do not know if VS Code for WPILib can be installed silently (Via the command line so for now you have to manually install it
+echo As of right now I do not know if VS Code for WPILib can be installed silently (Via the command line) so for now you have to manually install it
 cd ../Downloads
 curl https://aka.ms/vs/17/release/vs_BuildTools.exe -o vs_BuildTools.exe -L
 vs_BuildTools.exe --add Microsoft.VisualStudio.Product.BuildTools Microsoft.VisualStudio.Product.Community Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.CoreBuildTools Microsoft.VisualStudio.Component.Roslyn.Compiler Microsoft.VisualStudio.Component.Windows10SDK.19041 --includeOptional --includeRecommended --quiet --nocache --wait
