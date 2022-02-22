@@ -2,8 +2,8 @@
 #include <mutex>
 
 /**
- * @brief The type of data that you will be using
- * <p> This data will be thread safe using this class
+ * @brief This data will be thread safe using this class
+ * <p> This can be used if you want to get data from one thread to another
  * 
  * @tparam T 
  */

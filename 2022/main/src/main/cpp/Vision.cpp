@@ -7,16 +7,23 @@
 #include <atomic>
 #include <utility>
 #include "SafeData.hpp"
-
+/**
+ * @brief Construct a new `VisionSense` object
+ * 
+ * @param data 
+ */
 VisionSense::VisionSense(SafeData<std::tuple<double, double, double>>& data) :
     m_isRunning{false},
     m_data(data)
 {
 
 }
-
+/**
+ * @brief Does some stuff with the camera output to detect balls
+ * 
+ */
 void VisionSense::operator()() {
-    cs::UsbCamera camera = frc::CameraServer::StartAutomaticCapture();
+    cs::UsbCamera camera = frc::CameraServer::StartAutomaticCapture(0);
     camera.SetResolution(640, 480);
     cs::CvSink sync = frc::CameraServer::GetVideo();
     cs::CvSource output = frc::CameraServer::PutVideo("VisionSense", 640, 480);
@@ -41,7 +48,13 @@ void VisionSense::operator()() {
 
         // Set the ball information
         m_data.set(std::make_tuple(closestCircleX, closestCircleY, closestCircleDistance));
-        
         output.PutFrame(matrix);
     }
+}
+/**
+ * @brief Stops
+ * 
+ */
+void VisionSense::stop() {
+    m_isRunning = false;
 }

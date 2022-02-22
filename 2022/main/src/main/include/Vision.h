@@ -10,7 +10,7 @@
 #include "Vision.h"
 
 /**
- * @brief A class that takes input from a camera and detects studd
+ * @brief A class that takes input from a camera and detects stuff
  * 
  */
 struct VisionSense {
@@ -23,10 +23,15 @@ struct VisionSense {
          */
         VisionSense(SafeData<std::tuple<double, double, double>>& data);
         /**
-         * @brief Does some stuff with the camera input to detect balls
+         * @brief Does some stuff with the camera output to detect balls
          * 
          */
         void operator()();
+        /**
+         * @brief Stops
+         * 
+         */
+        void stop();
     private:
         std::atomic_bool m_isRunning;
         SafeData<std::tuple<double, double, double>>& m_data;

@@ -7,6 +7,10 @@
 #include <units/time.h>
 #include <frc/Timer.h>
 #include <frc/Joystick.h>
+#include <cameraserver/CameraServer.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <utility>
 #include <thread>
 
@@ -18,6 +22,7 @@
 #include "ConveyorControl.h"
 #include "SafeData.hpp"
 #include "Vision.h"
+#include "Autonomous.h"
 
 /**
  * @brief Construct a new Robot object
@@ -25,8 +30,8 @@
  */
 template<typename JoystickType>
 Robot<JoystickType>::Robot() :
-  m_leftMotor(1),
-  m_rightMotor(2),
+  m_leftMotor(0),
+  m_rightMotor(1),
   m_yeeter(5),
   m_conveyor(6),
   m_pickupMech(7),
@@ -37,8 +42,7 @@ Robot<JoystickType>::Robot() :
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
   m_conveyorControl(m_conveyor),
-  m_visionSense(m_posibleBallPosition),
-  m_visionThread()
+  m_autonomous(m_drive, m_safeData)
 {
   
 }
@@ -50,9 +54,7 @@ Robot<JoystickType>::Robot() :
  */
 template<typename JoystickType>
 void Robot<JoystickType>::RobotInit() {
-  m_visionThread = std::thread([this]() -> void {
-    m_visionSense();
-  });
+  frc::CameraServer::StartAutomaticCapture(1);
 }
 
 /**
@@ -73,7 +75,7 @@ void Robot<JoystickType>::RobotPeriodic() {
  */
 template<typename JoystickType>
 void Robot<JoystickType>::AutonomousInit() {
-
+  m_autonomous.start();
 }
 
 /**
@@ -82,7 +84,7 @@ void Robot<JoystickType>::AutonomousInit() {
  */
 template<typename JoystickType>
 void Robot<JoystickType>::AutonomousPeriodic() {
-
+  m_autonomous.update();
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Teleoperated and only gets called once per mode switch
@@ -98,7 +100,7 @@ void Robot<JoystickType>::TeleopInit() {
 template<typename JoystickType>
 void Robot<JoystickType>::TeleopPeriodic() {
 
-  m_driveControl(m_joystick.GetX(), m_joystick.GetY());
+  m_driveControl(m_joystick.GetY(), m_joystick.GetX());
 
   m_yeeterControl(m_joystickButtons.isButton1Pressed(), m_joystickButtons.isButton4Pressed());
 

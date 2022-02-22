@@ -22,5 +22,5 @@ DriverController::DriverController(frc::DifferentialDrive& drive) :
  * @param y The y of the joystick
  */
 void DriverController::operator()(double x, double y) {
-    m_drive.ArcadeDrive(y * -1, x);
+    m_drive.ArcadeDrive(y, x * -1);
 }

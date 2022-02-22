@@ -9,10 +9,13 @@
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/Timer.h>
-#include <frc/XboxController.h>
 #include <frc/Joystick.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
+#include <cameraserver/CameraServer.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <utility>
 #include <thread>
 #include <memory>
@@ -23,7 +26,8 @@
 #include "PickupMechControl.h"
 #include "ConveyorControl.h"
 #include "SafeData.hpp"
-#include "Vision.h"
+#include "Autonomous.h"
+
 
 /**
  * @brief Main robot class
@@ -160,17 +164,20 @@ class Robot : public frc::TimedRobot {
    */
   ConveyorController m_conveyorControl;
   /**
-   * @brief Thread safe data that is used for storing the possible ball data
+   * @brief The all purpose camera thread for normal camera use
    * 
    */
-  SafeData<std::tuple<double, double, double>> m_posibleBallPosition;
+  std::thread m_cameraThread;
   /**
-   * @brief The VisionSense library
-   * <p> Used for detection
+   * @brief The `SafeData` object
    * 
    */
-  VisionSense m_visionSense;
-  std::thread m_visionThread;
+  SafeData<std::tuple<double, double, double>> m_safeData;
+  /**
+   * @brief The `Autonomous` controller object
+   * 
+   */
+  Autonomous m_autonomous;
 };
 
 #include "Robot.hpp"
