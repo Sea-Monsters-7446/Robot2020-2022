@@ -5,7 +5,7 @@
 /**
  * @brief Construct a new `YeeterController` object
  * 
- * @param yeeter THE yeeter object
+ * @param yeeter THE YEETER object
  */
 YeeterController::YeeterController(frc::PWMVictorSPX& yeeter) :
     m_yeeter(yeeter)

@@ -49,7 +49,7 @@ Robot<JoystickType>::Robot() :
 
 
 /**
- * @brief This function that gets called when the robot first turns on
+ * @brief This function gets called when the robot first turns on
  * 
  */
 template<typename JoystickType>

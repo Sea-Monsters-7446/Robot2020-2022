@@ -17,7 +17,7 @@ public:
     /**
      * @brief Construct a new 'DriverController' object
      * 
-     * @param drive The drive control object
+     * @param drive The Drive Control object
      */
     DriverController(frc::DifferentialDrive& drive);
     /**

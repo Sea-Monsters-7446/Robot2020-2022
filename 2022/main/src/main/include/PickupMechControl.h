@@ -2,7 +2,7 @@
 
 #include <frc/motorcontrol/PWMVictorSPX.h>
 /**
- * @brief A struct that is used to control the Pickup Mechinism
+ * @brief A struct that is used to control the Pickup Mechanism
  * 
  * 
  * <p> Please note: `triggerButton` does not refer to the "trigger" button of the joystick. It

@@ -4,7 +4,7 @@
  * @brief Construct a new `ButtonState` object
  * 
  * @param joystick A joystick object created from frc/Joystick.h
- * <p> This class is used to read the state of the joystick because we had trouble with reading the joysticks
+ * <p> This class is used to read the state of the joystick because we had trouble with reading the joystick's
  * state consistently
  */
 ButtonState::ButtonState(frc::GenericHID& joystick) :

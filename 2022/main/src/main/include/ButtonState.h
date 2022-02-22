@@ -4,7 +4,7 @@
 #include <memory>
 
 /**
- * @brief A class used to keep track of the state of buttons for a joystick
+ * @brief A class used to keep track of the state of buttons on a joystick
  * 
  */
 class ButtonState {
