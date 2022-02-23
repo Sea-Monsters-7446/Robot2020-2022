@@ -42,6 +42,9 @@
     "CameraPublisher": {
       "open": true
     },
+    "LiveWindow": {
+      "open": true
+    },
     "SmartDashboard": {
       "open": true
     }

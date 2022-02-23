@@ -165,7 +165,7 @@ FILE_PATTERNS          = *.c \
                          *.qsf \
                          *.ice
 RECURSIVE              = YES
-EXCLUDE                = src/main/deploy/ src/test/ build/ gradle/ DoxygenThemes/
+EXCLUDE                = src/main/deploy/ src/test/ build/ gradle/ DoxygenThemes/ src/main/cpp/Main.md
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
