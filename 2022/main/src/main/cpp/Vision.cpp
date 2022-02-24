@@ -5,12 +5,12 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgcodecs/imgcodecs.hpp>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <chrono>
 #include <atomic>
 #include <vector>
 #include "SafeData.hpp"
 #include "Macros.h"
 #include "Vision.h"
-#include <chrono>
 
 /**
  * @brief Construct a new `VisionSense` object
@@ -32,31 +32,23 @@ void VisionSense::operator()() {
     camera.SetResolution(640, 480);
     cs::CvSink sync = frc::CameraServer::GetVideo();
     cs::CvSource output = frc::CameraServer::PutVideo("VisionSense Detected Circles", 640, 480);
+    std::vector<cv::Vec3f> circles;
+    std::vector<cv::Mat> rgbChannels;
+#ifdef VISION_TEST
     cv::Mat fullMatrix = cv::imread("/Users/robotics-mac-0/Documents/Test.png");
+#else
+    cv::Mat fullMatrix;
+#endif
     m_isRunning = true;
     while (m_isRunning) {
-        /* TODO - Commented for testing
+#ifndef VISION_TEST
         if (sync.GrabFrame(fullMatrix) == 0) {
             output.NotifyError(sync.GetError());
             continue;
         }
-        */
-        std::vector<cv::Vec3f> circles;
-        std::vector<cv::Mat> rgbChannels;
-        std::vector<std::pair<double, int>> distances;
+#endif
         cv::split(fullMatrix, rgbChannels);
-        
-        try {
-            cv::HoughCircles(rgbChannels.at(0), circles, cv::HoughModes::HOUGH_GRADIENT, 1, ((rgbChannels.at(1).rows) / 4), 50, 30);
-        }
-        catch(const std::exception& ex) {
-            FILE* debugFile;
-            debugFile = fopen("/Users/robotics-mac-0/Desktop/DebugLog.txt", "a+");
-            fprintf(debugFile, "Exception %s\n", ex.what());
-            fflush(debugFile);
-            fclose(debugFile);
-        }
-        
+        cv::HoughCircles(rgbChannels.at(0), circles, cv::HoughModes::HOUGH_GRADIENT, 1, ((rgbChannels.at(1).rows) / 4), 50, 30);
         std::pair<double, int> minDistancePoint = std::make_pair(std::numeric_limits<double>::max(), -1);
         for(unsigned int times = 0; times < circles.size(); times++) {
             cv::Vec3i c = circles.at(times);
@@ -65,7 +57,7 @@ void VisionSense::operator()() {
             cv::circle(fullMatrix, center, 1, cv::Scalar(0,100,100), 3, cv::LINE_AA);
             // circle outline
             int radius = c[2];
-            cv::circle(fullMatrix, center, radius, cv::Scalar(255,0,255), 3, cv::LINE_AA);
+            cv::circle(fullMatrix, center, radius, cv::Scalar(255,0,0), 3, cv::LINE_AA);
             std::pair<double, int> curPair = std::make_pair(FIND_DIST(1, 2, 180, FIND_PITCH_FROM_OBJECT(c[1], LIFECAM_VERT_FOV)), times);
             if(minDistancePoint.first > curPair.first) {
                 minDistancePoint = curPair;
@@ -77,6 +69,8 @@ void VisionSense::operator()() {
             m_data.set(std::make_tuple(closest[0], closest[1], distanceOfClosestCircle));
         }
         output.PutFrame(fullMatrix);
+        circles.clear();
+        rgbChannels.clear();
     }
 }
 /**
