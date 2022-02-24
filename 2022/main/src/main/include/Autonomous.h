@@ -3,6 +3,7 @@
 #include "VisionControl.h"
 #include "SafeData.hpp"
 #include <tuple>
+#include <vector>
 /**
  * @brief A class that handles autonomous functionallity
  * 

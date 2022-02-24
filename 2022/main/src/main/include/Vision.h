@@ -8,6 +8,7 @@
 #include <utility>
 #include "SafeData.hpp"
 #include "Vision.h"
+#include "Macros.h"
 
 /**
  * @brief A class that takes input from a camera and detects stuff

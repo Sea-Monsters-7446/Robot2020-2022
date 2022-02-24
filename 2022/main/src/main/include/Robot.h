@@ -19,6 +19,7 @@
 #include <utility>
 #include <thread>
 #include <memory>
+#include <vector>
 
 #include "ButtonState.h"
 #include "DriverControl.h"
@@ -169,15 +170,15 @@ class Robot : public frc::TimedRobot {
    */
   std::thread m_cameraThread;
   /**
-   * @brief The `SafeData` object
-   * 
-   */
-  SafeData<std::tuple<double, double, double>> m_safeData;
-  /**
    * @brief The `Autonomous` controller object
    * 
    */
   Autonomous m_autonomous;
+  /**
+   * @brief The `SafeData` object
+   * 
+   */
+  SafeData<std::tuple<double, double, double>> m_safeData;
 };
 
 #include "Robot.hpp"

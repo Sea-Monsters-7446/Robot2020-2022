@@ -1,4 +1,5 @@
 #include <frc/drive/DifferentialDrive.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "SafeData.hpp"
 #include "Autonomous.h"
 #include <thread>
@@ -41,7 +42,10 @@ void Autonomous::stop() {
  */
 void Autonomous::update() {
 // Put all your autonomous code that needs to be periodicly updated here //
-
+    frc::SmartDashboard::PutNumber("Detected Circle X", std::get<0>(m_visionData.get()));
+    frc::SmartDashboard::PutNumber("Detected Circle Y", std::get<1>(m_visionData.get()));
+    frc::SmartDashboard::PutNumber("Detected Circle Distance", std::get<2>(m_visionData.get()));
+    frc::SmartDashboard::UpdateValues();
 }
 /**
  * @brief Returns if the `Autonomous` class is started or not
