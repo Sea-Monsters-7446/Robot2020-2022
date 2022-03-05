@@ -43,7 +43,9 @@
       "open": true
     },
     "LiveWindow": {
-      "open": true
+      "Ungrouped": {
+        "open": true
+      }
     },
     "SmartDashboard": {
       "open": true

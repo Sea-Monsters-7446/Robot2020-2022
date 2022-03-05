@@ -42,9 +42,11 @@ Robot<JoystickType>::Robot() :
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
   m_conveyorControl(m_conveyor),
-  m_autonomous(m_drive, m_safeData)
+  m_autonomous(m_drive, m_yeeter, m_safeData),
+  m_camera("Main Camera", 0),
+  m_cameraServer(frc::CameraServer::StartAutomaticCapture(m_camera))
 {
-  
+
 }
 
 
@@ -54,7 +56,9 @@ Robot<JoystickType>::Robot() :
  */
 template<typename JoystickType>
 void Robot<JoystickType>::RobotInit() {
-  frc::CameraServer::StartAutomaticCapture(1);
+  m_camera.SetResolution(640, 480);
+  m_cameraServer.SetResolution(640, 480);
+  m_cameraServer.SetFPS(8);
 }
 
 /**

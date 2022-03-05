@@ -1,11 +1,7 @@
+#pragma once
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-
-//118 Robonaughts 254 Cheesy poops 16 (sometimes) // List of good things to look at lol
-
-#pragma once
-
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/Timer.h>
@@ -13,9 +9,6 @@
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <cameraserver/CameraServer.h>
-#include <opencv2/core/core.hpp>
-#include <opencv2/core/types.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 #include <utility>
 #include <thread>
 #include <memory>
@@ -178,7 +171,17 @@ class Robot : public frc::TimedRobot {
    * @brief The `SafeData` object
    * 
    */
-  SafeData<std::tuple<double, double, double>> m_safeData;
+  SafeData<std::tuple<double, double, double, double>> m_safeData;
+  /**
+   * @brief The main camera object
+   * 
+   */
+  cs::UsbCamera m_camera;
+  /**
+   * @brief The server broadcasting the data from `m_camera` to the SmartDashboard
+   * 
+   */
+  cs::MjpegServer m_cameraServer;
 };
 
 #include "Robot.hpp"
