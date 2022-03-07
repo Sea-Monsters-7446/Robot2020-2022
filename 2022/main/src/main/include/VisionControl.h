@@ -19,7 +19,7 @@ class VisionController {
     /**
      * @brief Construct a new `VisionController` object
      * 
-     * @param data The data that it creates. A `std::tuple` with four arguments of type doubles
+     * @param data The data that it creates. A `SafeData` with four templated arguments of type doubles
      * @param sink The `cs::CvSink` object to get the frame
      * @param output The `cs::CvSource` object to output the frame to
      */
