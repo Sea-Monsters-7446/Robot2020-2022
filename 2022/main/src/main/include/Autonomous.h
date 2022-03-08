@@ -2,6 +2,7 @@
 
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
+#include <cameraserver/CameraServer.h>
 
 #include "VisionControl.h"
 #include "SafeData.hpp"
@@ -19,8 +20,9 @@ class Autonomous {
          * @param drive A `frc::DifferentialDrive` object which will be used to control the robot in Autonomous mode
          * @param yeeter A `YeeterController` object used to control the OMEGA YEETER in autonomous mode
          * @param visionData A `SafeData` object that has the templated values of <double, double, double, double> which are used to store the x, y, distance, and radius values of the detected circle
+         * @param camera A `cs::UsbCamera` object that you want to get the video feed from to use for autonomous VisionSense
          */
-        Autonomous(frc::DifferentialDrive& drive, frc::PWMVictorSPX& yeeter, SafeData<std::tuple<double, double, double, double>>& visionData);
+        Autonomous(frc::DifferentialDrive& drive, frc::PWMVictorSPX& yeeter, SafeData<std::tuple<double, double, double, double>>& visionData, cs::UsbCamera& camera);
         /**
          * @brief Starts the `Autonomous` class
          * 

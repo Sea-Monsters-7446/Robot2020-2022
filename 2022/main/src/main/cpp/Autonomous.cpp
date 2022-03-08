@@ -1,6 +1,7 @@
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
+#include <cameraserver/CameraServer.h>
 #include <thread>
 #include <tuple>
 
@@ -10,12 +11,12 @@
  * @brief Construct a new `Autonomous` object
  * 
  */
-Autonomous::Autonomous(frc::DifferentialDrive& drive, frc::PWMVictorSPX& yeeter, SafeData<std::tuple<double, double, double, double>>& visionData) :
+Autonomous::Autonomous(frc::DifferentialDrive& drive, frc::PWMVictorSPX& yeeter, SafeData<std::tuple<double, double, double, double>>& visionData, cs::UsbCamera& camera) :
     m_drive(drive),
     m_yeeter(yeeter),
     m_visionData(visionData),
     m_started(false),
-    m_visionControl(m_visionData, frc::CameraServer::GetVideo("Main Camera"), frc::CameraServer::PutVideo("VisionSense", 640, 480))
+    m_visionControl(m_visionData, frc::CameraServer::GetVideo(camera), frc::CameraServer::PutVideo("VisionSense", 640, 480))
 {
     
 }

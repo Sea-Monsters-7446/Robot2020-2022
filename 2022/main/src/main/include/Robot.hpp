@@ -42,7 +42,7 @@ Robot<JoystickType>::Robot() :
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
   m_conveyorControl(m_conveyor),
-  m_autonomous(m_drive, m_yeeter, m_safeData),
+  m_autonomous(m_drive, m_yeeter, m_safeData, m_camera),
   m_camera("Main Camera", 0),
   m_cameraServer(frc::CameraServer::StartAutomaticCapture(m_camera))
 {
