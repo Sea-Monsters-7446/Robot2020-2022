@@ -3,11 +3,12 @@
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
 #include <cameraserver/CameraServer.h>
+#include <tuple>
+#include <vector>
 
 #include "VisionControl.h"
 #include "SafeData.hpp"
-#include <tuple>
-#include <vector>
+#include "Autonamoter.h"
 /**
  * @brief A class that handles autonomous functionallity
  * 
@@ -54,4 +55,6 @@ class Autonomous {
         bool m_started;
         // Declare your autonomous classes here
         VisionController m_visionControl;
+        AutonomousDrive m_autoDrive;
+
 };

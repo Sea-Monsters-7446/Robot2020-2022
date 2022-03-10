@@ -7,7 +7,6 @@
 #include <frc/Timer.h>
 #include <frc/Joystick.h>
 #include <frc/motorcontrol/PWMVictorSPX.h>
-#include <frc/motorcontrol/MotorControllerGroup.h>
 #include <cameraserver/CameraServer.h>
 #include <utility>
 #include <thread>

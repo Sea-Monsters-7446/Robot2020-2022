@@ -10,8 +10,6 @@
 #include "VisionControl.h"
 #include "SafeData.hpp"
 
-//#define VISION_TESTING
-
 /**
  * @brief Construct a new `VisionController` object
  * 
@@ -68,13 +66,11 @@ int VisionController::start() {
  * 
  */
 void VisionController::updateFrame() {
-#ifndef VISION_TEST
     m_safeMatrix.processLocked([this](cv::Mat& matrix) -> void {
         if(m_sink.GrabFrame(matrix) == 0) {
             m_output.NotifyError(m_sink.GetError());
         }
     });
-#endif
 }
 
 /**
@@ -94,8 +90,5 @@ void VisionController::putOutline(bool overlayOriginal) {
             cv::addWeighted(matrix, 1, m_outputMat, 1, 0.5, m_outputMat);
         });
     }
-#ifdef VISION_TESTING
-    cv::imwrite("/Users/robotics-mac-0/Desktop/image.png", m_outputMat);
-#endif
     m_output.PutFrame(m_outputMat);
 }

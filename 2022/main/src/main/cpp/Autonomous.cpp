@@ -16,7 +16,8 @@ Autonomous::Autonomous(frc::DifferentialDrive& drive, frc::PWMVictorSPX& yeeter,
     m_yeeter(yeeter),
     m_visionData(visionData),
     m_started(false),
-    m_visionControl(m_visionData, frc::CameraServer::GetVideo(camera), frc::CameraServer::PutVideo("VisionSense", 640, 480))
+    m_visionControl(m_visionData, frc::CameraServer::GetVideo(camera), frc::CameraServer::PutVideo("VisionSense", 640, 480)),
+    m_autoDrive(m_drive, visionData)
 {
     
 }
@@ -32,6 +33,7 @@ int Autonomous::start() {
     }
     m_started = true;
     m_visionControl.start();
+    m_autoDrive.pidInitialize(1, 1, 1, true);
 
     return 1;
 }
@@ -54,6 +56,8 @@ void Autonomous::update() {
 /**** Put all your autonomous code that needs to be periodicly updated here ****/
     m_visionControl.updateFrame();
     m_visionControl.putOutline();
+    m_autoDrive.update();
+
     frc::SmartDashboard::PutNumber("Detected Circle X", std::get<0>(m_visionData.get()));
     frc::SmartDashboard::PutNumber("Detected Circle Y", std::get<1>(m_visionData.get()));
     frc::SmartDashboard::PutNumber("Detected Circle Distance", std::get<2>(m_visionData.get()));
