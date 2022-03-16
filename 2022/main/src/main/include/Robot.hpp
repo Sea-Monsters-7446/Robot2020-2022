@@ -3,6 +3,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 #include <fmt/core.h>
+#include <frc/DriverStation.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/time.h>
 #include <frc/Timer.h>
@@ -42,11 +43,11 @@ Robot<JoystickType>::Robot() :
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
   m_conveyorControl(m_conveyor),
-  m_autonomous(m_drive, m_yeeter, m_safeData, m_camera),
+  m_autonomous(m_drive, m_yeeter, m_conveyor, m_safeData, m_camera),
   m_camera("Main Camera", 0),
   m_cameraServer(frc::CameraServer::StartAutomaticCapture(m_camera))
 {
-
+  m_rightMotor.SetInverted(true);
 }
 
 
@@ -71,7 +72,9 @@ void Robot<JoystickType>::RobotInit() {
  */
 template<typename JoystickType>
 void Robot<JoystickType>::RobotPeriodic() {
-
+  if (!frc::DriverStation::IsAutonomousEnabled) {
+    m_autonomous.stop();
+  }
 }
 /**
  * @brief This function gets called whenever the mode gets switched to Autonomous and it only gets called once per mode switch
@@ -104,7 +107,7 @@ void Robot<JoystickType>::TeleopInit() {
 template<typename JoystickType>
 void Robot<JoystickType>::TeleopPeriodic() {
 
-  m_driveControl(m_joystick.GetY(), m_joystick.GetX());
+  m_driveControl(m_joystick.GetX() * -1, m_joystick.GetY() * -1);
 
   m_yeeterControl(m_joystickButtons.isButton1Pressed(), m_joystickButtons.isButton4Pressed());
 
