@@ -15,6 +15,7 @@
 
 #include "ButtonState.h"
 #include "DriverControl.h"
+#include "GradTurn.h"
 #include "YeeterControl.h"
 #include "PickupMechControl.h"
 #include "ConveyorControl.h"
@@ -121,7 +122,7 @@ class Robot : public frc::TimedRobot {
    */
   frc::PWMVictorSPX m_pickupMech;
   /**
-   * @brief The drive object
+   * @brief The `DifferentialDrive` object
    * 
    */
   frc::DifferentialDrive m_drive;
@@ -132,15 +133,20 @@ class Robot : public frc::TimedRobot {
   JoystickType m_joystick;
 
   /**
-   * @brief The ButtonState object
+   * @brief The `ButtonState` object
    * 
    */
   ButtonState m_joystickButtons;
   /**
-   * @brief The DriveController object
+   * @brief The `DriveController` object
    * 
    */
   DriverController m_driveControl;
+  /**
+   * @brief The `GradualTurn` object
+   * 
+   */
+  GradualTurn m_gradualTurn;
   /**
    * @brief The YeeterController object
    * 

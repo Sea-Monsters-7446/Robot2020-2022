@@ -40,6 +40,7 @@ Robot<JoystickType>::Robot() :
   m_joystick(0),
   m_joystickButtons(m_joystick),
   m_driveControl(m_drive),
+  m_gradualTurn(m_leftMotor, m_rightMotor),
   m_yeeterControl(m_yeeter),
   m_pickupControl(m_pickupMech),
   m_conveyorControl(m_conveyor),
@@ -72,7 +73,7 @@ void Robot<JoystickType>::RobotInit() {
  */
 template<typename JoystickType>
 void Robot<JoystickType>::RobotPeriodic() {
-  if (!frc::DriverStation::IsAutonomousEnabled) {
+  if (!frc::DriverStation::IsAutonomousEnabled()) {
     m_autonomous.stop();
   }
 }
@@ -108,6 +109,8 @@ template<typename JoystickType>
 void Robot<JoystickType>::TeleopPeriodic() {
 
   m_driveControl(m_joystick.GetX() * -1, m_joystick.GetY() * -1);
+
+  m_gradualTurn(m_joystick.GetZ());
 
   m_yeeterControl(m_joystickButtons.isButton1Pressed(), m_joystickButtons.isButton4Pressed());
 
